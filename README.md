@@ -1,4 +1,4 @@
-# User-MFA-Status
+# User-MFA-Disabled-Status
 This small script will get users in your AAD tenant who have not been enabled for MFA.
 
 You'll need to call connect-msolservice before running this script. 
