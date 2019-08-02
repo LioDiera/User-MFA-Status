@@ -1,0 +1,7 @@
+# You'll need to call connect-msolservice before running this command. 
+# There is not a state "Disbaled" for MFA this script adds "Disabled" in the out put if the StrongAuthenticationRequirements.State is Null. 
+# Becasue the state is null it is safe to assume that MFA has not been enabled for the user. 
+
+Get-MsolUser -all | select DisplayName,UserPrincipalName, `
+@{N="MFA Status"; E={ if( $_.StrongAuthenticationRequirements.State -ne $null)`
+{ $_.StrongAuthenticationRequirements.State} else { "Disabled"}}}
